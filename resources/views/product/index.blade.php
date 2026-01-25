@@ -7,32 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="m-1">Đây là trang product index</h1>
+    <h1 class="m-1">{{ $title }}</h1>
 
     <table class="table m-1">
   <thead>
     <tr>
-      <th scope="col">STT</th>
+      <th scope="col">ID</th>
       <th scope="col">Product Name</th>
       <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($products as $product)
     <tr>
-      <th scope="row">1</th>
-      <td>Chó</td>
-      <td>200000</td>
+      <th scope="row">{{ $product['id'] }}</th>
+      <td>{{ $product['name'] }}</td>
+      <td>{{ $product['price'] }}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Mèo</td>
-      <td>300000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Cá</td>
-      <td>50000</td>
-    </tr>
+    @endforeach
   </tbody>
   <a href="/product/add" class="btn btn-primary m-1">Thêm sản phẩm</a>
 </table>

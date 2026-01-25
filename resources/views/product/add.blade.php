@@ -8,7 +8,7 @@
 </head>
 <body>
     <table>
-        <form action="/product/add" method="post">
+        <form action="/product/store" method="post">
             @csrf
             <tr>
                 <td>Product Name</td>
