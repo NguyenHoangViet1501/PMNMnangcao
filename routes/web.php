@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\AgeController;
+use App\Http\Middleware\CheckAge;
 
 Route::get('/', function () {
     return view('home');
@@ -41,3 +42,12 @@ Route::fallback( function () {
 Route::get('/banco/{n?}', function ( int $n = 5) {
     return view('banco', ['n' => $n]);
 });
+
+Route::prefix('age')->group(function () {
+    Route::controller(AgeController::class)->group(function () {
+        Route::get('/', 'showForm');
+        Route::post('/save', 'saveAge');
+        Route::get('/secret', 'secret')->middleware(CheckAge::class);
+    });
+});
+
