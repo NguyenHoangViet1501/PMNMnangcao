@@ -28,6 +28,8 @@ Route::prefix('auth')->group(function (){
     });
 });
 
+Route::resource('test', TestController::class);
+
 Route::get('/sinhvien/{name?}/{mssv?}', function (string $name = 'Luong Xuan Hieu', string $mssv ='123456') {
     return view('sinhvien', ['name' => $name, 'mssv' => $mssv]);
 })->name('sinhvien');

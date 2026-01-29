@@ -15,12 +15,24 @@
                 <td><input type="text" name="username"></td>
             </tr>
             <tr>
-                <td>password</td>
-                <td><input type="text" name="password"></td>
+                <td>mssv</td>
+                <td><input type="text" name="mssv"></td>
             </tr>
             <tr>
-                <td>email</td>
-                <td><input type="text" name="email"></td>
+                <td>lopmonhoc</td>
+                <td><input type="text" name="lopmonhoc"></td>
+            </tr>
+            <tr>
+                <td>gioitinh</td>
+                <td><input type="text" name="gioitinh"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>repassword</td>
+                <td><input type="password" name="repassword"></td>
             </tr>
             <tr>
                 <td colspan="2">

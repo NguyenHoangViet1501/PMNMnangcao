@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+use Illuminate\Contracts\Routing\Middleware;
+
+
+class ProductController extends Controller implements Middleware
 {
-    //
+    
     public function index()
     {
         $title = "Danh sách sản phẩm";

@@ -29,23 +29,14 @@ class AuthController extends Controller
     }
     public function checkRegister(Request $request)
     {
-        $username = $request->input('username');
-        $email = $request->input('email');
-        $password = $request->input('password');
-
-        if (empty($username) || empty($email) || empty($password)) {
-            return response()->json(['message' => 'All fields are required'], 400);
+        $data = $request->all();
+        if ($data['password'] !== $data['repassword']) {
+            return response()->json(['message' => 'Password confirmation does not match'], 400);
         }
-
-        $usercorrect = "Nguyen Hoang Viet";
-        $emailcorrect = "0292767@st.huce.edu.vn";
-
-        if ($username !== $usercorrect || $email !== $emailcorrect) {
-            return response()->json(['message' => 'Username or email is incorrect'], 400);
-        }
-
-        if ($username === $usercorrect && $email === $emailcorrect) {
-            return response()->json(['message' => 'Registration successful'], 201);
+        else if ($data['username']=== 'vietnh' && $data['mssv'] ==='0292767' && $data['lopmonhoc'] ==='67PM1' && $data['gioitinh'] ==='nam') {
+            return response()->json(['message' => 'Register successful'], 200);
+        } else {
+            return response()->json(['message' => 'Register failed'], 400);
         }
     }
 }
