@@ -51,3 +51,6 @@ Route::prefix('age')->group(function () {
     });
 });
 
+Route::get('/admin', function() {
+    return view('layout/admin');
+});

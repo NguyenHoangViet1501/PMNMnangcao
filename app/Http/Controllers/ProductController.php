@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\Routing\Middleware;
 
 
-class ProductController extends Controller implements Middleware
+class ProductController extends Controller
 {
     
     public function index()
     {
         $title = "Danh sách sản phẩm";
-        return view('product.index', ["title" => $title,
+        return view('admin.product.index', ["title" => $title,
         'products'=>[
             ['id' => 1, 'name' => 'Sản phẩm 1', 'price' => 100000],
             ['id' => 2, 'name' => 'Sản phẩm 2', 'price' => 200000],
