@@ -31,6 +31,8 @@ Route::prefix('auth')->group(function (){
 
 Route::resource('test', TestController::class);
 
+Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+
 Route::get('/sinhvien/{name?}/{mssv?}', function (string $name = 'Luong Xuan Hieu', string $mssv ='123456') {
     return view('sinhvien', ['name' => $name, 'mssv' => $mssv]);
 })->name('sinhvien');
@@ -52,5 +54,6 @@ Route::prefix('age')->group(function () {
 });
 
 Route::get('/admin', function() {
-    return view('layout/admin');
+    $title = 'Admin Dashboard';
+    return view('layout/admin', compact('title'));
 });
