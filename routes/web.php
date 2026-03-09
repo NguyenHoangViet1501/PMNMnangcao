@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgeController;
 use App\Http\Middleware\CheckAge;
@@ -10,15 +9,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::prefix('product')->group(function () {
-    Route::controller(ProductController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::get('/detail/{id}', 'detail');
-        Route::get('/add', 'create');
-        Route::post('/store', 'store');
-    });
-
-});
+Route::resource('products', \App\Http\Controllers\ProductController::class);
 
 Route::prefix('auth')->group(function (){
     Route::controller(AuthController::class)->group(function () {
